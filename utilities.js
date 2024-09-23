@@ -15,13 +15,7 @@ function showDonations(input,total,area) {
       const donatedMoney = parseFloat(donatedAmount);
       const totalDonation = donatedMoney + addMoneyNumber;
   document.getElementById(total).innerText = totalDonation;
-  const h2 = document.createElement('h2');
-  h2.classList.add('text-2xl', 'font-bold');
-  h2.textContent = `${addMoneyNumber} Taka is Donated for ${areaText} Bangladesh`;
-  document.getElementById('history-div').appendChild(h2);
-
-     
-
+  
 
   const balance = document.getElementById('balance').innerText;
  
@@ -29,6 +23,10 @@ function showDonations(input,total,area) {
   if (balanceNumber >= addMoneyNumber && addMoneyNumber > 0) {
     const totalBalance = balanceNumber - addMoneyNumber;
     document.getElementById('balance').innerText = totalBalance;
+    const h2 = document.createElement('h2');
+  h2.classList.add('text-2xl', 'font-bold');
+  h2.textContent = `${addMoneyNumber} Taka is Donated for ${areaText} Bangladesh`;
+  document.getElementById('history-div').appendChild(h2);
   }
   else{
     alert('You don\'t have enough balance');
