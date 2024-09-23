@@ -23,10 +23,19 @@ function showDonations(input,total,area) {
   if (balanceNumber >= addMoneyNumber && addMoneyNumber > 0) {
     const totalBalance = balanceNumber - addMoneyNumber;
     document.getElementById('balance').innerText = totalBalance;
-    const h2 = document.createElement('h2');
-  h2.classList.add('text-2xl', 'font-bold');
-  h2.textContent = `${addMoneyNumber} Taka is Donated for ${areaText} Bangladesh`;
-  document.getElementById('history-div').appendChild(h2);
+    const div = document.createElement('div');
+    div.className= "mt-2 border-2 rounded-lg p-6";
+
+    const currentDate = new Date();
+    const localTime = currentDate.toLocaleString(); 
+const gmtTime = currentDate.toUTCString(); 
+const bangladeshTime = currentDate.toLocaleString("en-US", { timeZone: "Asia/Dhaka" });
+
+  div.innerHTML=`
+  <h2 class="text-2xl font-bold">${addMoneyNumber} Taka is Donated for ${areaText} Bangladesh</h2>
+<p>Date: ${gmtTime} ${bangladeshTime} </p>
+  `
+  document.getElementById('history-div').appendChild(div);
   }
   else{
     alert('You don\'t have enough balance');
