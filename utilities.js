@@ -3,16 +3,26 @@ function getValuebyId(id) {
     return element;
 }
 
-function showDonations(input,total) {
+function showDonations(input,total,area) {
  
     const addMoney =getValuebyId(input);
     const addMoneyNumber = parseFloat(addMoney);
+    const areaText=getInnerTextbyId(area);
+    
     
     if (!isNaN(addMoneyNumber) && addMoneyNumber > 0) {
       const donatedAmount = document.getElementById(total).innerText;
       const donatedMoney = parseFloat(donatedAmount);
       const totalDonation = donatedMoney + addMoneyNumber;
   document.getElementById(total).innerText = totalDonation;
+  const h2 = document.createElement('h2');
+  h2.classList.add('text-2xl', 'font-bold');
+  h2.textContent = `${addMoneyNumber} Taka is Donated for ${areaText} Bangladesh`;
+  document.getElementById('history-div').appendChild(h2);
+
+     
+
+
   const balance = document.getElementById('balance').innerText;
  
   const balanceNumber = parseFloat(balance);
@@ -28,4 +38,9 @@ function showDonations(input,total) {
     else{
       alert('Please enter a valid amount');
     }
+  }
+
+  function getInnerTextbyId(id){
+   const elements= document.getElementById(id).innerText;
+    return elements;
   }
