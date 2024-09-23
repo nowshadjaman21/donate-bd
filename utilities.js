@@ -3,26 +3,34 @@ function getValuebyId(id) {
     return element;
 }
 
+
+
+
 function showDonations(input,total,area) {
  
     const addMoney =getValuebyId(input);
     const addMoneyNumber = parseFloat(addMoney);
     const areaText=getInnerTextbyId(area);
-    
-    
+  
+
     if (!isNaN(addMoneyNumber) && addMoneyNumber > 0) {
       const donatedAmount = document.getElementById(total).innerText;
       const donatedMoney = parseFloat(donatedAmount);
       const totalDonation = donatedMoney + addMoneyNumber;
+
   document.getElementById(total).innerText = totalDonation;
+  
   
 
   const balance = document.getElementById('balance').innerText;
  
   const balanceNumber = parseFloat(balance);
   if (balanceNumber >= addMoneyNumber && addMoneyNumber > 0) {
+    
+    
     const totalBalance = balanceNumber - addMoneyNumber;
     document.getElementById('balance').innerText = totalBalance;
+   
     const div = document.createElement('div');
     div.className= "mt-2 border-2 rounded-lg p-6";
 
@@ -36,6 +44,8 @@ const bangladeshTime = currentDate.toLocaleString("en-US", { timeZone: "Asia/Dha
 <p>Date: ${gmtTime} ${bangladeshTime} </p>
   `
   document.getElementById('history-div').appendChild(div);
+
+
   }
   else{
     alert('You don\'t have enough balance');
