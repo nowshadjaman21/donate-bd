@@ -1,6 +1,9 @@
-document.getElementById('blog').addEventListener('click', function () {
-    window.location.href = 'blog.html'
-})
+document.addEventListener('DOMContentLoaded', function () {
+    document.getElementById('blog').addEventListener('click', function () {
+      window.location.href = 'blog.html';
+    });
+  });
+
 
 function showHistory() {
     document.getElementById('history-btn').classList.add('bg-green-500');
