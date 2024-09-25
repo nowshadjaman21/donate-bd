@@ -17,20 +17,16 @@ function showDonations(input,total,area) {
       const donatedAmount = document.getElementById(total).innerText;
       const donatedMoney = parseFloat(donatedAmount);
       const totalDonation = donatedMoney + addMoneyNumber;
-
-  document.getElementById(total).innerText = totalDonation;
   
-  
-
   const balance = document.getElementById('balance').innerText;
  
   const balanceNumber = parseFloat(balance);
   if (balanceNumber >= addMoneyNumber && addMoneyNumber > 0) {
     
-    
+    document.getElementById(total).innerText = totalDonation;
     const totalBalance = balanceNumber - addMoneyNumber;
     document.getElementById('balance').innerText = totalBalance;
-   
+   alert('Thank you for your donation');
     const div = document.createElement('div');
     div.className= "mt-2 border-2 rounded-lg p-6";
 
